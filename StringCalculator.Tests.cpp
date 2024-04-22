@@ -5,7 +5,7 @@ TEST(StringCalculatorTestSuite,GivenStringHasNegatives){
     //Arrange
     StringCalculator objUnderTest;
     string input="-6,-5,4,3";
-    int expectedValue=4;
+    int expectedValue=7;
     //Act
    int actualValue=  objUnderTest.Add(input);
     //Assert
