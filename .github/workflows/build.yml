@@ -1,0 +1,42 @@
+name: Build , Test and Cover
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+       
+    - name: Set up CMake
+      uses: threeal/cmake-action@main
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y libgtest-dev
+        sudo apt-get install -y lcov
+        sudo apt-get install -y gcovr
+        
+        
+         
+    - name: Configure CMake
+      run: cmake -Bbuild -H.
+
+    - name: Build
+      run: cmake --build build --config Release
+
+    - name: Run tests
+      run: |
+        cd build
+        ctest --output-on-failure
+        
+   
