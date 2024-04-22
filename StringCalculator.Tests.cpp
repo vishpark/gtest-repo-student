@@ -1,7 +1,7 @@
 #include "StringCalculator.h"
 #include <gtest/gtest.h>
 
-TEST(StringCalculatorTestSuite,GivenStringHasNegatives){
+TEST(StringCalculatorTestSuite,GivenEmptyStringZeroIsExpected){
     //Arrange
     StringCalculator objUnderTest;
     string input="-6,-5,4,3";
